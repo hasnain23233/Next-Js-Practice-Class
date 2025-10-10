@@ -15,7 +15,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata>{
 
 
 const page = async ({ params }: Props) => {
-    const {productId , clientId} = (await params)
+  const { productId, clientId } = (await params)
+  if (clientId > '23') {
+    throw new Error('Throw a new error to the sysytem')
+  }
   return (
     <div>
           this is a with product { productId } client details page of the website {clientId}
